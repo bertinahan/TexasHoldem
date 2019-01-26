@@ -90,8 +90,8 @@ namespace TexasHoldem.Model
         public string PromptForPlayerName()
         {
             return "/--------------------------------------------------------/"
-                + "\nPlease enter player name to add player, or press enter key"
-                + "\n to display winner and quit\n"
+                + "\nPlease enter player name to add player, eg: Joe; or press"
+                + "\n enter key to display winner and quit\n"
                 + "/--------------------------------------------------------/"
                 + "\n\n";
 

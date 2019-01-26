@@ -9,7 +9,7 @@ namespace Library.Model
         public CardSuit Suit { get; }
 
         /**
-         * Card model
+         * Card constructor
          * 
          * @param {CardRank} rank rank of the card
          * @param {CardSuit} suit suit of the card

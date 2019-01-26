@@ -10,15 +10,31 @@ namespace Library.Model
       
         public List<Card> Cards { get; set; }
         public HandRank HandRank { get; set; }
+
+        /**
+         * PlayerHand constructor
+         */
         public PlayerHand()
             : this(new List<Card>())
         {
         }
+
+        /**
+         * PlayerHand constructor
+         * 
+         * @param {List} cards list of card
+         */
         public PlayerHand(List<Card> cards)
         {
             Cards = cards;
         }
 
+        /**
+         * Comparasion with other player hand
+         * 
+         * @param  {PlayerHand} otherHand
+         * @return {Integer}    compare result
+         */        
         public int CompareTo(PlayerHand otherHand)
         {
             if (otherHand == null || HandRank > otherHand.HandRank) return 1;
