@@ -33,6 +33,7 @@
   <ItemGroup>
     <Compile Include="Test.cs" />
     <Compile Include="Library\ApiTest.cs" />
+    <Compile Include="Library\Model\CardTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -49,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Library\" />
+    <Folder Include="Library\Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
