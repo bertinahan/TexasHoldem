@@ -17,5 +17,10 @@ namespace Library.Model
         {
             return Rank - otherCard.Rank;
         }
+
+        public override string ToString()
+        {
+            return Rank.ToString() + " " + Suit.ToString();
+        }
     }
 }

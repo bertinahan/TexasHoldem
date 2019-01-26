@@ -5,7 +5,7 @@ namespace Library.Exceptions
     public class InvalidPlayerException : Exception
     {
         public InvalidPlayerException()
-            : this("Player information is invalid!")
+            : base("Player information is invalid!")
         {
         }
 

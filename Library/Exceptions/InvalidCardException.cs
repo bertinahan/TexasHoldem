@@ -4,7 +4,7 @@ namespace Library.Exceptions
     public class InvalidCardException : Exception
     {
         public InvalidCardException()
-            : this("Card information is invalid!")
+            : base("Card information is invalid!")
         {
         }
 

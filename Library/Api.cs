@@ -10,13 +10,18 @@ namespace Library
 {
     public static class Api
     {
-        public static List<HandRank> rules = new List<HandRank>();
+        private static List<HandRank> rules = new List<HandRank>();
         private static readonly HandRank[] ALLRULES = {HandRank.HighCard,
             HandRank.OnePair, HandRank.ThreeOfAKind, HandRank.Flush};
         private static List<Card> usedCards = new List<Card>();
         private const int CARDNUMBER = 5;
 
-
+        /**
+         * Register player with valid player name
+         *
+         * @param  {string} name player name
+         * @return {Player}      new player
+         */
         public static Player RegisterPlayer(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
@@ -25,11 +30,17 @@ namespace Library
             return player;
         }
 
+        /**
+         * Register player hand with user input card string; player hand is only
+         * valid when card is valid and no duplicate card
+         *
+         * @param  {string}     cardString player card string
+         * @return {PlayerHand}            new player hand with cards
+         */
         public static PlayerHand RegisterPlayerHand(string cardString)
         {
             if (string.IsNullOrWhiteSpace(cardString))
                 throw new InvalidCardException("empty string is not allowed");
-
             string[] cards = cardString.Split(',');
             if (cards == null || cards.Length != CARDNUMBER)
                 throw new InvalidCardException("incorrect number of cards");
@@ -44,24 +55,28 @@ namespace Library
 
                 Card validCard = Parser.ParseCard(formatCardString);
 
-                if (usedCards.Any((usedCard) => 
-                    usedCard.CompareTo(validCard)== 0
+                if (usedCards.Any((usedCard) =>
+                    usedCard.CompareTo(validCard) == 0
                     && usedCard.Suit == validCard.Suit))
-                        throw new InvalidCardException("duplicate card");
+                    throw new InvalidCardException("duplicate card");
 
                 validCards.Add(validCard);
             }
 
-            if (validCards.GroupBy((validCard) => 
+            if (validCards.GroupBy((validCard) =>
              new { validCard.Rank, validCard.Suit })
             .Any((grp) => grp.Count() > 1))
                 throw new InvalidCardException("duplicate card");
 
             usedCards.AddRange(validCards);
             return new PlayerHand(validCards);
-
         }
 
+        /**
+         * Register rules that is pre-defined
+         *
+         * @param  {HandRank} ruleName name of the rule
+         */
         public static void RegisterRules(HandRank ruleName)
         {
             if (!ALLRULES.Contains(ruleName))
@@ -70,6 +85,12 @@ namespace Library
                 rules.Add(ruleName);
         }
 
+        /**
+         * Get a list of winners
+         *
+         * @param  {List} players all players
+         * @return {List}         winner list
+         */
         public static List<Player> GetWinners(List<Player> players)
         {
             if (players == null || players.Count == 0)
@@ -77,14 +98,30 @@ namespace Library
             if (players.Any(player => player.PlayerHand == null))
                 throw new InvalidPlayerException("player hand");
             Analyser analyser = new Analyser(rules);
-            players.ForEach((player) => {
+            players.ForEach((player) =>
+            {
                 analyser.SetHandRank(player.PlayerHand);
-                Console.WriteLine(player.Name + " rank is " + player.PlayerHand.HandRank);
             });
-            
-            Player highest = players.OrderByDescending((player) => player.PlayerHand).FirstOrDefault();
-            List<Player> winners = players.Where((player) => player.PlayerHand.CompareTo(highest.PlayerHand)==0).ToList();
+
+            Player highest = players
+              .OrderByDescending((player) => player.PlayerHand)
+              .FirstOrDefault();
+            List<Player> winners = players
+              .Where((player) => player.PlayerHand.CompareTo(highest.PlayerHand) == 0)
+               .ToList();
             return winners;
+        }
+
+        /**
+        * Register player with valid player name
+        *
+        * @param  {string} name player name
+        * @return {Player}      new player
+        */
+        public static void ResetGame()
+        {
+            rules = new List<HandRank>();
+            usedCards = new List<Card>();
         }
     }
 }

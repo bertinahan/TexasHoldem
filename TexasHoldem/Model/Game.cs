@@ -27,6 +27,7 @@ namespace TexasHoldem.Model
             } catch (Exception e)
             {
                 DisplayInstruction(e.Message);
+                Environment.Exit(0);
             }
 
         }
@@ -44,8 +45,7 @@ namespace TexasHoldem.Model
                 name = ReadPlayerInput();
                 if (String.IsNullOrEmpty(name))
                 {
-                    List<Player> winners = Api.GetWinners(players);
-                    DisplayWinners(winners);
+                    DisplayWinners();
                     continue;
                 }
 
@@ -91,7 +91,7 @@ namespace TexasHoldem.Model
         {
             return "/--------------------------------------------------------/"
                 + "\nPlease enter player name to add player, or press enter key"
-                + "\n to display winner\n"
+                + "\n to display winner and quit\n"
                 + "/--------------------------------------------------------/"
                 + "\n\n";
 
@@ -106,10 +106,19 @@ namespace TexasHoldem.Model
                 + "\n\n";
         }
 
-        public void DisplayWinners(List<Player> winners)
+        public void DisplayWinners()
         {
-            winners.ForEach((winner) => Console.WriteLine(winner.Name + " wins! " 
-            + " "+ winner.PlayerHand.ToString()));
+            try
+            {
+                List<Player> winners = Api.GetWinners(players);
+
+                winners.ForEach((winner) => Console.WriteLine(winner.Name + " wins! "
+                + " " + winner.PlayerHand.HandRank));
+            } catch (Exception e)
+            {
+                DisplayInstruction(e.Message);
+            }
+
         }
 
     }

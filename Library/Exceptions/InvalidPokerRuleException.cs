@@ -5,8 +5,9 @@ namespace Library.Exceptions
     {
 
         public InvalidPokerRuleException()
-             : this("Rule does not exist in game!")
+             : base("Rule does not exist in game!")
         {
+
         }
 
         public InvalidPokerRuleException(string message)

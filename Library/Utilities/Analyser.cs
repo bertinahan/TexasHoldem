@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Library.Model;
+using Library.Exceptions;
 
 namespace Library.Utilities
 {
@@ -21,6 +22,8 @@ namespace Library.Utilities
 
         public void SetHandRank(PlayerHand playerHand)
         {
+            if (Rules == null || Rules.Count == 0)
+                throw new InvalidPokerRuleException();
             HandRank rank = HandRank.HighCard;
             foreach (HandRank rule in Rules)
             {
