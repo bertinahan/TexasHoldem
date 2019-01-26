@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TexasHoldem", "TexasHoldem\TexasHoldem.csproj", "{B3364292-B3A8-4C9C-B1E5-A864F07ED0B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Library\Library.csproj", "{EAC7788E-84D2-488C-9D93-58333A63E755}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3364292-B3A8-4C9C-B1E5-A864F07ED0B2}.Debug|x86.ActiveCfg = Debug|x86
+		{B3364292-B3A8-4C9C-B1E5-A864F07ED0B2}.Debug|x86.Build.0 = Debug|x86
+		{B3364292-B3A8-4C9C-B1E5-A864F07ED0B2}.Release|x86.ActiveCfg = Release|x86
+		{B3364292-B3A8-4C9C-B1E5-A864F07ED0B2}.Release|x86.Build.0 = Release|x86
+		{EAC7788E-84D2-488C-9D93-58333A63E755}.Debug|x86.ActiveCfg = Debug|x86
+		{EAC7788E-84D2-488C-9D93-58333A63E755}.Debug|x86.Build.0 = Debug|x86
+		{EAC7788E-84D2-488C-9D93-58333A63E755}.Release|x86.ActiveCfg = Release|x86
+		{EAC7788E-84D2-488C-9D93-58333A63E755}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+EndGlobal
