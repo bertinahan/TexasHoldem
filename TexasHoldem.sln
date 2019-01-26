@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TexasHoldem", "TexasHoldem\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Library\Library.csproj", "{EAC7788E-84D2-488C-9D93-58333A63E755}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{772E2EFC-A55B-498F-9E56-83B9FB6861FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -19,5 +21,9 @@ Global
 		{EAC7788E-84D2-488C-9D93-58333A63E755}.Debug|x86.Build.0 = Debug|x86
 		{EAC7788E-84D2-488C-9D93-58333A63E755}.Release|x86.ActiveCfg = Release|x86
 		{EAC7788E-84D2-488C-9D93-58333A63E755}.Release|x86.Build.0 = Release|x86
+		{772E2EFC-A55B-498F-9E56-83B9FB6861FE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{772E2EFC-A55B-498F-9E56-83B9FB6861FE}.Debug|x86.Build.0 = Debug|Any CPU
+		{772E2EFC-A55B-498F-9E56-83B9FB6861FE}.Release|x86.ActiveCfg = Release|Any CPU
+		{772E2EFC-A55B-498F-9E56-83B9FB6861FE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
