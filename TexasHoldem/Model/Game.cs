@@ -8,14 +8,21 @@ namespace TexasHoldem.Model
 {
     public class Game
     {
+
         private List<Player> players;
 
+        /** 
+         * Game constructor
+         */
         public Game()
         {
             players = new List<Player>();
             Init();
         }
 
+        /**
+         * Initialize game with pre-dified rules
+         */
         public void Init()
         {
             try
@@ -32,6 +39,9 @@ namespace TexasHoldem.Model
 
         }
 
+        /** 
+         * Start game and ask for user input
+         */       
         public void StartGame()
         {
 
@@ -78,15 +88,29 @@ namespace TexasHoldem.Model
             } while (!String.IsNullOrEmpty(name));
 
         }
+
+        /**
+         * User input handler
+         */
         public string ReadPlayerInput()
         {
             string name = Console.ReadLine();
             return name;
         }
+
+        /** 
+         * Prompt for user input
+         * 
+         * @param {String} message system mesage
+         */
         public void DisplayInstruction(String message)
         {
             Console.WriteLine(message);
         }
+
+        /**
+         * Prompt for user name
+         */
         public string PromptForPlayerName()
         {
             return "/--------------------------------------------------------/"
@@ -97,6 +121,9 @@ namespace TexasHoldem.Model
 
         }
 
+        /**
+         * Prompt for user card string
+         */
         public string PromptForCardsString()
         {
             return "/--------------------------------------------------------/"
@@ -106,6 +133,9 @@ namespace TexasHoldem.Model
                 + "\n\n";
         }
 
+        /**
+         * Display winners in game, or error message if input is incorrect
+         */
         public void DisplayWinners()
         {
             try
