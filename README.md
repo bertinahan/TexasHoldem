@@ -12,6 +12,8 @@ otherwise program will keep asking for valid card string
 - Card used by another player can not be added again in one game round
 - When poker hand ranks are tie for players, program will compare kickers.
 - Card string must be seperated by comma, and C, D, H, S are used for suit
+- When no player is added and user press enter key during start up, program will
+show error message and quit
 
 ## Design
 
@@ -28,6 +30,31 @@ The Api project. It exposes interfaces:
 - RegisterPlayerHand
 - RegisterRules
 - GetWinners
+
+#### Structure
+ - Library
+
+  - Api: Gateway for all user request, stateless class that only handle logic
+
+   - Model
+
+    - Card: Card object that contains rank and suit
+    - Player: Player object that contains name and player hand
+    - PlayerHand: A set 5 cards and has rank according to registered game rule
+
+  - Utilities:
+
+   - Analyser: Analyse player hand strength
+   - CardEnum: Poker constants
+   - Parser: User input parser
+
+  - Exceptions:
+
+   - InvalidCardException: Throw when card information is incorrect
+   - InvalidGameException: Throw when game enconters problem
+   - InvalidPlayerException: Throw when player information is incorrect
+   - InvalidPokerRuleException: Throw when game rule is incorrect
+
 
 ### Test
 
@@ -51,13 +78,13 @@ the second highest card held wins. This continues through the five highest cards
 
  ### One Pair
 
- -If two or more players hold a single pair, then highest pair wins. If the
+ - If two or more players hold a single pair, then highest pair wins. If the
  pairs are of the same value, the highest kicker card determines the winner.
  A second and even third kicker can be used if necessary.
 
  ### High Card
 
- When no player has even a pair, then the highest card wins. When both players
+ - When no player has even a pair, then the highest card wins. When both players
  have identical high cards, the next highest card wins, and so on until five
  cards have been used. In the unusual circumstance that two players hold the
  identical five cards, the pot would be split.
