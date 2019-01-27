@@ -32,24 +32,20 @@ The Api project. It exposes interfaces:
 - GetWinners
 
 #### Structure
- - Library
 
-  - Api: Gateway for all user request, stateless class that only handle logic
+  1. Api: Gateway for all user request, stateless class that only handle logic
 
-   - Model
+  2. Model
+   - Card: Card object that contains rank and suit
+   - Player: Player object that contains name and player hand
+   - PlayerHand: A set 5 cards and has rank according to registered game rule
 
-    - Card: Card object that contains rank and suit
-    - Player: Player object that contains name and player hand
-    - PlayerHand: A set 5 cards and has rank according to registered game rule
-
-  - Utilities:
-
+  3. Utilities:
    - Analyser: Analyse player hand strength
    - CardEnum: Poker constants
    - Parser: User input parser
 
-  - Exceptions:
-
+  4. Exceptions:
    - InvalidCardException: Throw when card information is incorrect
    - InvalidGameException: Throw when game enconters problem
    - InvalidPlayerException: Throw when player information is incorrect
