@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using Library.Model;
 using Library.Exceptions;
 
@@ -6,7 +7,12 @@ namespace Library.Utilities
 {
     public static class Parser
     {
-    
+        /**
+         * Parse a single card string
+         *
+         * @param  {string} card card string contains rank and suit
+         * @return {Card}       parsed card
+         */
         public static Card ParseCard(string card)
         {
             int cardLength = card.Length;
@@ -29,11 +35,14 @@ namespace Library.Utilities
                 case "Q": cardRank = CardRank.Queen; break;
                 case "K": cardRank = CardRank.King; break;
                 case "A": cardRank = CardRank.Ace; break;
-                default: 
-                    int value = Convert.ToInt32(rank);
-                    if (value < 2 || value > 10)
+                default:
+
+                    if (!Regex.IsMatch(rank, @"\b([2-9]{1}|10)\b"))
+                    {
                         throw new InvalidCardException(
-                        "card rank does not exist");
+                         "card rank does not exist");
+                    }
+                    int value = Convert.ToInt32(rank);
                     cardRank = (CardRank)value;
                     break;
             }

@@ -45,7 +45,7 @@ namespace Library
             if (cards == null || cards.Length != CARDNUMBER)
                 throw new InvalidCardException("incorrect number of cards");
             List<Card> validCards = new List<Card>();
-            Regex rgx = new Regex(@"(A|J|Q|K|[2-9]|10)(H|C|D|S)");
+            Regex rgx = new Regex(@"\b(A|J|Q|K|[2-9]{1}|10)(H|C|D|S)\b");
             String formatCardString;
             foreach (string card in cards)
             {

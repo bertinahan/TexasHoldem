@@ -46,7 +46,7 @@ namespace Test.Library
         {
             string[] invalidCards = { " ", null, "", ",,,,", "12,ah,2h,3h,4h"
             , "5d,3s,7d,5d,8h", "ah", "3c,5c,6c,7c", "1h, ,4h,5h,6h",
-            ",    5s ,4h,5h,6h"};
+            ",    5s ,4h,5h,6h", "2h,3h,4h,5h,23h"};
             foreach (string invalidCard in invalidCards)
             {
                 Assert.Throws(typeof(InvalidCardException), delegate {

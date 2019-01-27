@@ -36,6 +36,8 @@
     <Compile Include="Library\Model\CardTest.cs" />
     <Compile Include="Library\Model\PlayerTest.cs" />
     <Compile Include="Library\Model\PlayHandTest.cs" />
+    <Compile Include="Library\Utilities\AnalyserTest.cs" />
+    <Compile Include="Library\Utilities\ParserTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -53,6 +55,7 @@
   <ItemGroup>
     <Folder Include="Library\" />
     <Folder Include="Library\Model\" />
+    <Folder Include="Library\Utilities\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
